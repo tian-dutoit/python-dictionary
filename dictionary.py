@@ -12,15 +12,15 @@ def meaning(input_word):
     elif len(get_close_matches(input_word, data.keys())) > 0 :
         closeresponse = input("Did you mean %s? Y/N: " % get_close_matches(input_word, data.keys())[0]).lower()
         if closeresponse == "y":
-            newword = get_close_matches(input_word, data.keys()[0])
+            newword = data[get_close_matches(input_word, data.keys())[0]]
             return newword
         elif closeresponse == "n":
-            print("Word not found")
+            return "Word not found"
         else:
-            print("Invalid response")
+            return "Invalid response"
 
     else:
-        print("The word is not in the dictionary")
+        return "The word is not in the dictionary"
 
 
 word = input("Please enter a word: ")

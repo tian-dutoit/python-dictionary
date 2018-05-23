@@ -22,7 +22,14 @@ def meaning(input_word):
     else:
         return "The word is not in the dictionary"
 
-
 word = input("Please enter a word: ")
 
-print(meaning(word))
+definitions = meaning(word)
+
+if type(definitions) == list:
+    for definition in definitions:
+        print(definition)
+else:
+    print(definitions)   
+    # if there is a word returned it will be in a list, this loop will print out the different definitions without the [] and on separate lines. If it's not a list it will just print out our string.
+    
